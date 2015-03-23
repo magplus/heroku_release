@@ -1,5 +1,5 @@
 desc "Tag and push master branch to heroku"
-task :heroku_release => ['heroku_release:tag', 'heroku_release:push']
+task :heroku_release => ['heroku_release:tag', 'heroku_release:push', 'heroku_release:inform_newrelic']
 
 namespace :heroku_release do
   HerokuRelease::Task.tasks.each do |task_name, description|

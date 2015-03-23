@@ -19,6 +19,7 @@ module HerokuRelease
     def self.tasks
       {
         :push => nil,
+        :inform_newrelic => nil,
         :tag => nil,
         :log => "Produces a changelog from release tags and their comments. Assumes tag comments have no newlines in them.",
         :current_release => "Show version of current release",
@@ -31,6 +32,11 @@ module HerokuRelease
     def push
       output "Deploying branch #{branch} to Heroku ..."
       execute "git push #{config.heroku_remote} #{branch}:master"
+    end
+
+    def inform_newrelic
+      release = "git describe --abbrev=0"
+      execute "heroku run 'newrelic deployments -r #{release}' -r #{config.heroku_remote}"
     end
 
     def tag
