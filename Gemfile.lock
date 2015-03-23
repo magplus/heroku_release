@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     heroku_release (0.2.4)
+      newrelic_rpm
 
 GEM
   remote: http://rubygems.org/
@@ -10,6 +11,7 @@ GEM
     metaclass (0.0.1)
     mocha (0.10.0)
       metaclass (~> 0.0.1)
+    newrelic_rpm (3.11.0.283)
     rake (0.9.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
