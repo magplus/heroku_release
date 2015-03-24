@@ -35,7 +35,7 @@ module HerokuRelease
     end
 
     def inform_newrelic
-      release = "git describe --abbrev=0"
+      release = `git describe --abbrev=0`.chomp
       execute "heroku run 'newrelic deployments -r #{release}' -r #{config.heroku_remote}"
     end
 
