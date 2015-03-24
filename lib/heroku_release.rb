@@ -2,9 +2,9 @@ require 'ostruct'
 
 module HerokuRelease
   @@config = OpenStruct.new(
-    :heroku_remote => "heroku",
-    :prompt_for_comments => true,
-    :branch => "master"
+    heroku_remote: "heroku",
+    prompt_for_comments: true,
+    branch: "master"
   )
 
   def self.config
@@ -18,14 +18,14 @@ module HerokuRelease
   class Task
     def self.tasks
       {
-        :push => nil,
-        :inform_newrelic => nil,
-        :tag => nil,
-        :log => "Produces a changelog from release tags and their comments. Assumes tag comments have no newlines in them.",
-        :current_release => "Show version of current release",
-        :previous_release => "Show version of previous release",
-        :pending => "Show git commits since last released version",
-        :rollback => "Rollback to previous release and remove current release tag"
+        push: nil,
+        inform_newrelic: nil,
+        tag: nil,
+        log: "Produces a changelog from release tags and their comments. Assumes tag comments have no newlines in them.",
+        current_release: "Show version of current release",
+        previous_release: "Show version of previous release",
+        pending: "Show git commits since last released version",
+        rollback: "Rollback to previous release and remove current release tag"
       }
     end
 

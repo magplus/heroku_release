@@ -55,7 +55,7 @@ describe HerokuRelease::Task do
     it "prompts for a comment message if enforced" do
       previous_value = HerokuRelease.config.prompt_for_comments
       old_stdin = $stdin
-      $stdin = mock('stdin', :gets => "my custom stdin comment")
+      $stdin = mock('stdin', gets: "my custom stdin comment")
 
       begin
         HerokuRelease.config.prompt_for_comments = true
