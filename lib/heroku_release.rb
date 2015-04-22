@@ -36,7 +36,9 @@ module HerokuRelease
 
     def inform_newrelic
       release = `git describe --abbrev=0`.chomp
-      execute "heroku run 'newrelic deployments -r #{release}' -r #{config.heroku_remote}"
+      Bundler.with_clean_env do
+        execute "heroku run 'newrelic deployments -r #{release}' -r #{config.heroku_remote}"
+      end
     end
 
     def tag
